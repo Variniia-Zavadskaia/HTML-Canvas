@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/canvas.css">
+    <title>HTML Canvas</title>
+</head>
+
+<body onload="onInit()">
+
+    <div class="container">
+        <section class="tools-board">
+
+            <label for="bcg"></label>
+            <input required type="color" id="bcg" name="bgc" form="frmRegister" value="#ffffff" />
+
+            <label for="shpColor"></label>
+            <input required type="color" id="shpColor" name="shpColor" form="frmRegister" value="#000000" />
+
+            <label>
+                <!-- <select class="shape-choice"> -->
+                <select class="shape-choice" onchange="onSetShape()">
+                    <option value="circle">Circles</option>
+                    <option value="square">Squares</option>
+                    <option value="pencil">Pencil</option>
+                </select>
+            </label>
+
+            <button class="clear-canvas" onclick="onClearCanvas()">Clear Canvas</button>
+            <button class="save-img">Save As Image</button>
+        </section>
+
+        <div class="canvas-container">
+			<canvas width="450" height="450" onclick="onDraw(event)"> </canvas>
+		</div>
+    </div>
+
+<script src="js/canvas.js"></script>
+
+</body>
+
+</html>
