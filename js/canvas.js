@@ -6,7 +6,7 @@ var gBckg
 var gShpColor
 var isDrawing
 var gPrevPos
-var gCanvas
+
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 function onInit() {
@@ -35,7 +35,9 @@ function onSetBckGrnd() {
     const elClrChoice = document.getElementById('bcg')
     gBckg = elClrChoice.value
     const elCanvas = document.querySelector('canvas')
-    elCanvas.style.backgroundColor = gBckg
+    // elCanvas.style.backgroundColor = gBckg
+    gCtx.fillStyle = gBckg
+    gCtx.fillRect(0,0, gElCanvas.width, gElCanvas.height)
 }
 
 function onSetShpColor(){
@@ -113,7 +115,7 @@ function onUp() {
 
 function addListeners() {
     addMouseListeners()
-    // addTouchListeners()
+    addTouchListeners()
     //* Listen for resize ev
     window.addEventListener('resize', () => {
         resizeCanvas()
@@ -144,28 +146,18 @@ function getEvPos(ev) {
         y: ev.offsetY,
     }
 
-    // if (TOUCH_EVS.includes(ev.type)) {
-    //     //* Prevent triggering the mouse ev
-    //     ev.preventDefault()
-    //     //* Gets the first touch point
-    //     ev = ev.changedTouches[0]
-    //     //* Calc the right pos according to the touch screen
-    //     pos = {
-    //         x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-    //         y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
-    //     }
-    //     // console.log('pos:', pos)
-    // }
+    if (TOUCH_EVS.includes(ev.type)) {
+        //* Prevent triggering the mouse ev
+        ev.preventDefault()
+        //* Gets the first touch point
+        ev = ev.changedTouches[0]
+        //* Calc the right pos according to the touch screen
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+        }
+        // console.log('pos:', pos)
+    }
     return pos
 }
 
-// download ////////////////////////////////////////////////
-
-// function onSelectImg(elImg) {
-//     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
-// }
-
-function onDownloadCanvas(elLink) {
-    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
-    elLink.href = imgContent
-}
