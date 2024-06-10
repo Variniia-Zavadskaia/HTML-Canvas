@@ -16,6 +16,7 @@ function onInit() {
     addListeners()
 
     onSetShpColor()
+    onSetBckGrnd()
     onSetShape();
     resizeCanvas()
     // window.addEventListener('resize', resizeCanvas)
@@ -34,8 +35,7 @@ function resizeCanvas() {
 function onSetBckGrnd() {
     const elClrChoice = document.getElementById('bcg')
     gBckg = elClrChoice.value
-    const elCanvas = document.querySelector('canvas')
-    // elCanvas.style.backgroundColor = gBckg
+
     gCtx.fillStyle = gBckg
     gCtx.fillRect(0,0, gElCanvas.width, gElCanvas.height)
 }
@@ -70,8 +70,8 @@ function drawShape(x, y) {
             break
         case 'square':
             var dist = Math.sqrt( Math.abs(gPrevPos.x - x)**2 + Math.abs(gPrevPos.y - y)**2)
-            // gCtx.rect(x, y, dist, dist)
-            gCtx.rect(x, y, dist, 5*dist)
+            gCtx.rect(x, y, dist, dist)
+            // gCtx.rect(x, y, dist, 5*dist)
             break
     }
 

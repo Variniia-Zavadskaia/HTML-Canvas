@@ -82,7 +82,7 @@ input[type='file'] {
 }
 
 #bcg,
-#shpColor {
+#shpColor, .shape-choice {
     background-color: #fff;
     border: 1px solid #d5d9d9;
     box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
@@ -91,3 +91,4 @@ input[type='file'] {
     cursor: pointer;
     display: inline-block;
 }
+
