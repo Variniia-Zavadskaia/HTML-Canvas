@@ -31,6 +31,7 @@ body {
 
     justify-content: space-evenly;
     align-items: flex-end;
+    padding-top: 20px;
 }
 
 canvas {
@@ -38,25 +39,55 @@ canvas {
     border: 1px solid black;
 }
 
-.btn {
-    text-decoration: none;
-    display: inline-block;
-    padding: 5px 5px;
-    /* margin: 10px 20px; */
-    border-radius: 10px;
-    box-shadow: 0 0 40px 40px #279bee inset, 0 0 0 0 #279bee ;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: lighter;
-    letter-spacing: normal;
-    color: rgb(41, 40, 40);
-    transition: .15s ease-in-out;
-}
-
-.btn:hover{
-    box-shadow: 0 0 10px 0 #279bee  inset, 0 0 10px 4px #279bee ;
-    color: #279bee ;
-}
-
-button{
+button {
     border: #279bee;
+}
+
+input[type='file'] {
+    display: none
+}
+
+.btn {
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    box-sizing: border-box;
+    color: #0f1111;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Amazon Ember", sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 0 10px 0 11px;
+    position: relative;
+    text-align: center;
+
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: 150px;
+}
+
+.btn:hover {
+    background-color: #f7fafa;
+}
+
+.btn:focus {
+    border-color: #008296;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    outline: 0;
+}
+
+#bcg,
+#shpColor {
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    box-sizing: border-box;
+    color: #0f1111;
+    cursor: pointer;
+    display: inline-block;
 }
